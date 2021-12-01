@@ -1,11 +1,6 @@
 <template>
     <main>
-        <Movie/>
-        <ul>
-            <li v-for="movie, i in searchResult" :key="i">
-                {{movie.title}}
-            </li>
-        </ul>
+        <Movie v-for="movie, i in searchResult" :key="i" :movie="movie" />
     </main>
 </template>
 
@@ -36,9 +31,11 @@ export default {
 
 <style lang="scss" scoped>
     main {
-        background-color: #141414;
-        li {
-            color: white;
-        }
+        width: 90%;
+        margin: 0 auto;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        min-height: calc(100vh - 100px);
     }
 </style>

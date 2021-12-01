@@ -21,7 +21,7 @@ export default {
     },
     methods: {
         getMovies() {
-            this.apiUrl = 'https://api.themoviedb.org/3/search/movie?api_key=f6d56afba3697f4f7eaf4ee3841df221&language=en-US&query='+ this.userSearch +'&page=1&include_adult=true'
+            this.apiUrl = 'https://api.themoviedb.org/3/search/movie?api_key=f6d56afba3697f4f7eaf4ee3841df221&language=it-IT&query='+ this.userSearch +'&page=1&include_adult=true'
             axios
             .get(this.apiUrl)
             .then((result) => {
@@ -35,6 +35,7 @@ export default {
 
 <style lang="scss" scoped>
     header {
+        height: 100px;
         background-color: #141414;
         display: flex;
         justify-content: space-between;
