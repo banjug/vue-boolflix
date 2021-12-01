@@ -1,15 +1,50 @@
 <template>
     <header>
-        hello world
+        <h1>BOOLFLIX</h1>
+        <div class="search">
+            <input type="text" placeholder="Cerca un film o una serie" v-model="userSearch">
+            <button @click="$emit('userSearch', userSearch)">Cerca</button>
+        </div>
     </header>
 </template>
 
 <script>
 export default {
     name: 'Header',
+    data() {
+        return {
+            userSearch: ''
+        }
+    }
 }
 </script>
 
 <style lang="scss" scoped>
-
+    header {
+        background-color: #141414;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 30px;
+        h1 {
+            color: #e50914;
+            font-size: 3rem;
+        }
+        .search {
+            display: flex;
+            input {
+                margin-right: 10px;
+                padding: 5px 10px;
+                border: none;
+                border-radius: 20px;
+            }
+            button {
+                padding: 5px 10px;
+                border: none;
+                border-radius: 20px;
+                background-color: #e50914;
+                color: white;
+            }
+        }
+    }
 </style>
