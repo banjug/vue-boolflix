@@ -1,9 +1,11 @@
 <template>
     <div class="movie">
         <h3>{{movie.title}}</h3>
-        <h4><span class="movie-info">Titolo Originale:</span> {{movie.original_title}}</h4>
-        <h4><span class="movie-info">Lingua:</span> {{movie.original_language}}</h4>
-        <h4><span class="movie-info">Voto:</span> {{movie.vote_average}}</h4>
+        <ul>
+            <li><span class="movie-info">Titolo Originale:</span> {{movie.original_title}}</li>
+            <li><span class="movie-info">Lingua:</span> {{movie.original_language}}</li>
+            <li><span class="movie-info">Voto:</span> {{movie.vote_average}}</li>
+        </ul>
     </div>
 </template>
 
@@ -26,7 +28,8 @@ export default {
         h3 {
             margin-bottom: 20px;
         }
-        h4 {
+        li {
+            list-style: none;
             font-weight: normal;
             margin-top: 10px;
             font-size: .9rem;
