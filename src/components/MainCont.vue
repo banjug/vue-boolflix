@@ -14,16 +14,9 @@ export default {
     props: {
         search: Array
     },
-    created() {
-        this.search
-    },
     computed: {
         searchResult() {
-            if (this.search === []) {
-                return
-            } else {
                 return this.search
-            }
         }
     }
 }
