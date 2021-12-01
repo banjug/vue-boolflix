@@ -2,20 +2,36 @@
     <header>
         <h1>BOOLFLIX</h1>
         <div class="search">
-            <input type="text" placeholder="Cerca un film o una serie" v-model="userSearch" @keyup.enter="$emit('userSearch', userSearch)">
-            <button @click="$emit('userSearch', userSearch)">Cerca</button>
+            <input type="text" placeholder="Cerca un film o una serie" v-model="userSearch" @keyup.enter="getMovies(),$emit('userSearch', movieList)">
+            <button @click="getMovies(),$emit('userSearch', movieList)">Cerca</button>
         </div>
     </header>
 </template>
 
 <script>
+import axios from "axios"
 export default {
     name: 'Header',
     data() {
         return {
-            userSearch: ''
+            userSearch: '',
+            apiUrl: '',
+            movieList: [],
         }
-    }
+    },
+    methods: {
+        getMovies() {
+            this.apiUrl = 'https://api.themoviedb.org/3/search/movie?api_key=f6d56afba3697f4f7eaf4ee3841df221&language=en-US&query='+ this.userSearch +'&page=1&include_adult=true'
+            axios
+            .get(this.apiUrl)
+            .then((result) => {
+                console.log(this.apiUrl);
+                this.movieList = result.data.results
+                console.log(this.movieList);
+                return this.movieList
+            })
+        }
+    },
 }
 </script>
 

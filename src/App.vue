@@ -21,8 +21,8 @@ export default {
     }
   },
   methods: {
-    searchResult(searchInput) {
-      this.search = searchInput;
+    searchResult(movieArray) {
+      this.search = movieArray;
       console.log(this.search);
     }
   }
