@@ -2,8 +2,8 @@
     <header>
         <h1>BOOLFLIX</h1>
         <div class="search">
-            <input type="text" placeholder="Cerca un film o una serie" v-model="userSearch" @keyup.enter="getMovies(),$emit('userSearch', movieList)">
-            <button @click="getMovies(),$emit('userSearch', movieList)">Cerca</button>
+            <input type="text" placeholder="Cerca un film o una serie" v-model="userSearch" @keyup.enter="getMovies()">
+            <button @click="getMovies()">Cerca</button>
         </div>
     </header>
 </template>
@@ -26,6 +26,7 @@ export default {
             .get(this.apiUrl)
             .then((result) => {
                 this.movieList = result.data.results
+                this.$emit('userSearch', this.movieList)
                 return this.movieList
             })
         }

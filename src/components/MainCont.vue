@@ -12,11 +12,11 @@ export default {
         Movie,
     },
     props: {
-        search: Array
+        searchRes: Array
     },
     computed: {
         searchResult() {
-                return this.search
+                return this.searchRes
         }
     }
 }

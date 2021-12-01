@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <Header @userSearch="searchResult"/>
-    <MainCont :search="search"/>
+    <MainCont :searchRes="search"/>
   </div>
 </template>
 
