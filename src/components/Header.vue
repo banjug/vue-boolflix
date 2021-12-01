@@ -2,7 +2,7 @@
     <header>
         <h1>BOOLFLIX</h1>
         <div class="search">
-            <input type="text" placeholder="Cerca un film o una serie" v-model="userSearch">
+            <input type="text" placeholder="Cerca un film o una serie" v-model="userSearch" @keyup.enter="$emit('userSearch', userSearch)">
             <button @click="$emit('userSearch', userSearch)">Cerca</button>
         </div>
     </header>

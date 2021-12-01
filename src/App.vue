@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <Header @userSearch="searchResult"/>
-    <MainCont/>
+    <MainCont :search="search" />
   </div>
 </template>
 
@@ -15,9 +15,14 @@ export default {
     Header,
     MainCont
   },
+  data() {
+    return {
+      search: ''
+    }
+  },
   methods: {
     searchResult(searchInput) {
-      console.log(searchInput);
+      this.search = searchInput;
     }
   }
 }
