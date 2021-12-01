@@ -17,15 +17,18 @@ export default {
         Movie,
     },
     props: {
-        search: Object
+        search: Array
     },
     created() {
         this.search
     },
     computed: {
         searchResult() {
-            console.log(this.search);
-            return this.search
+            if (this.search === []) {
+                return
+            } else {
+                return this.search
+            }
         }
     }
 }

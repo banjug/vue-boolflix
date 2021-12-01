@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <Header @userSearch="searchResult"/>
-    <MainCont :searchResult="search"/>
+    <MainCont :search="search"/>
   </div>
 </template>
 
@@ -17,13 +17,12 @@ export default {
   },
   data() {
     return {
-      search: ''
+      search: []
     }
   },
   methods: {
     searchResult(movieArray) {
       this.search = movieArray;
-      console.log(this.search);
     }
   }
 }

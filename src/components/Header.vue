@@ -25,9 +25,7 @@ export default {
             axios
             .get(this.apiUrl)
             .then((result) => {
-                console.log(this.apiUrl);
                 this.movieList = result.data.results
-                console.log(this.movieList);
                 return this.movieList
             })
         }
