@@ -1,9 +1,9 @@
 <template>
     <div class="movie">
         <h3>{{movie.title}}</h3>
-        <h4>{{movie.original_title}}</h4>
-        <h4>{{movie.original_language}}</h4>
-        <h4>{{movie.vote_average}}</h4>
+        <h4><span class="movie-info">Titolo Originale:</span> {{movie.original_title}}</h4>
+        <h4><span class="movie-info">Lingua:</span> {{movie.original_language}}</h4>
+        <h4><span class="movie-info">Voto:</span> {{movie.vote_average}}</h4>
     </div>
 </template>
 
@@ -24,14 +24,21 @@ export default {
         padding: 20px;
         width: calc(20% - 20px);
         h3 {
-            margin-bottom: 10px;
+            margin-bottom: 20px;
         }
         h4 {
             font-weight: normal;
+            margin-top: 10px;
+            font-size: .9rem;
+            width: 80%;
         }
         &::after {
             content: '';
             flex: auto;
+        }
+        .movie-info {
+            color: #e50914;
+            font-weight: bold;
         }
     }
 </style>

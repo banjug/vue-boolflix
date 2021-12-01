@@ -3,7 +3,7 @@
         <h1>BOOLFLIX</h1>
         <div class="search">
             <input type="text" placeholder="Cerca un film o una serie" v-model="userSearch" @keyup.enter="getMovies()">
-            <button @click="getMovies()">Cerca</button>
+            <button @click="getMovies()">CERCA</button>
         </div>
     </header>
 </template>
@@ -37,7 +37,7 @@ export default {
 <style lang="scss" scoped>
     header {
         height: 100px;
-        background-color: #141414;
+        background: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(20,20,20,1) 100%); 
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -48,18 +48,29 @@ export default {
         }
         .search {
             display: flex;
+            width: 25%;
+            * {
+                font-size: 1rem;
+                line-height: 2rem;
+                padding: 5px 20px;
+                border-radius: 30px;
+                border: none;
+            }
             input {
                 margin-right: 10px;
-                padding: 5px 10px;
-                border: none;
-                border-radius: 20px;
+                width: 100%;
             }
             button {
-                padding: 5px 10px;
-                border: none;
-                border-radius: 20px;
-                background-color: #e50914;
-                color: white;
+                font-weight: bold;
+                border: 2px solid #e50914;
+                background-color: transparent;
+                color: #e50914;
+                transition: all .1s ease;
+                cursor: pointer;
+                &:active {
+                    background-color: #e50914;
+                    color: white;
+                }
             }
         }
     }
