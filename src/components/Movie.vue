@@ -7,6 +7,9 @@
 <script>
 export default {
     name: 'Movie',
+    props: {
+        movie: Object
+    }
 }
 </script>
 

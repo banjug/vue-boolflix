@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <Header @userSearch="searchResult"/>
-    <MainCont :search="search" />
+    <MainCont :searchResult="search"/>
   </div>
 </template>
 
@@ -23,6 +23,7 @@ export default {
   methods: {
     searchResult(searchInput) {
       this.search = searchInput;
+      console.log(this.search);
     }
   }
 }
