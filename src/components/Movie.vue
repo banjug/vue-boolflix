@@ -3,7 +3,9 @@
         <h3>{{movie.title}}</h3>
         <ul>
             <li><span class="movie-info">Titolo Originale:</span> {{movie.original_title}}</li>
-            <li><span class="movie-info">Lingua:</span> {{movie.original_language}}</li>
+            <li v-if="movie.original_language === 'en'"><span class="movie-info">Lingua:</span> <img src="../assets/flag-united-kingdom.png" alt=""></li>
+            <li v-else-if="movie.original_language === 'it'"><span class="movie-info">Lingua:</span> <img src="../assets/flag-italy.png" alt=""></li>
+            <li v-else><span class="movie-info">Lingua estera</span> <img src="../assets/white-flag.png" alt=""></li>
             <li><span class="movie-info">Voto:</span> {{movie.vote_average}}</li>
         </ul>
     </div>
@@ -34,6 +36,9 @@ export default {
             margin-top: 10px;
             font-size: .9rem;
             width: 80%;
+            img {
+                height: 1.2rem;
+            }
         }
         &::after {
             content: '';
