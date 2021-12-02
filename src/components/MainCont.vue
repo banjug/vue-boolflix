@@ -1,22 +1,29 @@
 <template>
     <main>
-        <Movie v-for="movie, i in searchResult" :key="i" :movie="movie" />
+        <Movie v-for="movie, i in movieResult" :key="i" :movie="movie" />
+        <TvShow v-for="tvshow, j in tvShowResult" :key="j" :tvshow="tvshow" />
     </main>
 </template>
 
 <script>
 import Movie from '@/components/Movie.vue'
+import TvShow from '@/components/TvShow.vue'
 export default {
     name: 'MainCont',
     components: {
         Movie,
+        TvShow
     },
     props: {
-        searchRes: Array
+        movieRes: Array,
+        tvRes: Array
     },
     computed: {
-        searchResult() {
-                return this.searchRes
+        movieResult() {
+                return this.movieRes
+        },
+        tvShowResult() {
+            return this.tvRes
         }
     }
 }

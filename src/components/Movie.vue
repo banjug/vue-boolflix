@@ -27,6 +27,7 @@ export default {
         margin: 10px;
         padding: 20px;
         width: calc(20% - 20px);
+        min-height: 100%;
         h3 {
             margin-bottom: 20px;
         }

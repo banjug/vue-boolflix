@@ -2,8 +2,8 @@
     <header>
         <h1>BOOLFLIX</h1>
         <div class="search">
-            <input type="text" placeholder="Cerca un film o una serie" v-model="userSearch" @keyup.enter="getMovies()">
-            <button @click="getMovies()">CERCA</button>
+            <input type="text" placeholder="Cerca un film o una serie" v-model="userSearch" @keyup.enter="getMovies(), getTv()">
+            <button @click="getMovies(), getTv()">CERCA</button>
         </div>
     </header>
 </template>
@@ -15,22 +15,34 @@ export default {
     data() {
         return {
             userSearch: '',
-            apiUrl: '',
+            movieApi: '',
+            tvApi: '',
             movieList: [],
+            tvList: []
         }
     },
     methods: {
         getMovies() {
-            this.apiUrl = 'https://api.themoviedb.org/3/search/movie?api_key=f6d56afba3697f4f7eaf4ee3841df221&language=it-IT&query='+ this.userSearch +'&page=1&include_adult=true'
+            this.movieApi = 'https://api.themoviedb.org/3/search/movie?api_key=f6d56afba3697f4f7eaf4ee3841df221&language=it-IT&query='+ this.userSearch
             axios
-            .get(this.apiUrl)
+            .get(this.movieApi)
             .then((result) => {
                 this.movieList = result.data.results
-                this.$emit('userSearch', this.movieList)
+                this.$emit('movieSearch', this.movieList)
                 return this.movieList
             })
+        },
+        getTv() {
+            this.tvApi = 'https://api.themoviedb.org/3/search/tv?api_key=f6d56afba3697f4f7eaf4ee3841df221&language=it-IT&page=1&query='+ this.userSearch
+            axios
+            .get(this.tvApi)
+            .then((result) => {
+                this.tvList = result.data.results
+                this.$emit('tvSearch', this.tvList)
+                return this.tvList
+            })
         }
-    },
+    }
 }
 </script>
 
