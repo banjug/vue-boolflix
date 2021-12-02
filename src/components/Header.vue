@@ -33,7 +33,7 @@ export default {
             })
         },
         getTv() {
-            this.tvApi = 'https://api.themoviedb.org/3/search/tv?api_key=f6d56afba3697f4f7eaf4ee3841df221&language=it-IT&page=1&query='+ this.userSearch
+            this.tvApi = 'https://api.themoviedb.org/3/search/tv?api_key=f6d56afba3697f4f7eaf4ee3841df221&language=it-IT&query='+ this.userSearch
             axios
             .get(this.tvApi)
             .then((result) => {

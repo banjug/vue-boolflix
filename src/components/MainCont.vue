@@ -1,7 +1,7 @@
 <template>
     <main>
-        <Movie v-for="movie, i in movieResult" :key="i" :movie="movie" />
-        <TvShow v-for="tvshow, j in tvShowResult" :key="j" :tvshow="tvshow" />
+        <Movie v-for="movie, i in movieResult" :key="'movie' + i" :movie="movie"/>
+        <TvShow v-for="tvshow, i in tvShowResult" :key="'tvshow' + i" :tvshow="tvshow"/>
     </main>
 </template>
 
