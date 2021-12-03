@@ -20,7 +20,7 @@ export default {
     },
     computed: {
         movieResult() {
-                return this.movieRes
+            return this.movieRes
         },
         tvShowResult() {
             return this.tvRes

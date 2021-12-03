@@ -8,7 +8,7 @@
                 <li v-if="movie.original_language === 'en'"><span class="movie-info">Lingua:</span> <img src="../assets/flag-united-kingdom.png" alt=""></li>
                 <li v-else-if="movie.original_language === 'it'"><span class="movie-info">Lingua:</span> <img src="../assets/flag-italy.png" alt=""></li>
                 <li v-else><span class="movie-info">Lingua estera</span> <img src="../assets/white-flag.png" alt=""></li>
-                <li><span class="movie-info">Voto:</span><i class="fas fa-star" v-for="i in getScore()" :key="i"></i><i class="far fa-star" v-for="i in getEmptyStar()" :key="i"></i></li>
+                <li><span class="movie-info">Voto:</span><i class="fas fa-star" v-for="i in getScore()" :key="'star'+i"></i><i class="far fa-star" v-for="i in getEmptyStar()" :key="'emptystar'+i"></i></li>
             </ul>
             <p v-if="movie.overview.length > 0">{{movie.overview.slice(0, 300)}}...</p>
             <p v-else>Nessuna descrizione disponibile.</p>
@@ -25,28 +25,22 @@ export default {
     },
     data() {
         return {
-            posterSrc: '',
-            score: '',
-            empty: ''
+            posterPlaceholder: require("../assets/placeholder.png")
         }
     },
     methods: {
         getPoster() {
             if (this.movie.poster_path === null) {
-                this.posterSrc = '../src/assets/movie_placeholder.png'
-
+                return this.posterPlaceholder
             } else {
-                this.posterSrc = 'https://image.tmdb.org/t/p/original' + this.movie.poster_path
-                return this.posterSrc
+                return 'https://image.tmdb.org/t/p/original' + this.movie.poster_path
             }
         },
         getScore() {
-            this.score = Math.round(this.movie.vote_average / 2)
-            return this.score
+            return Math.round(this.movie.vote_average / 2)
         },
         getEmptyStar() {
-            this.empty = 5 - this.score
-            return this.empty
+            return 5 - Math.round(this.movie.vote_average / 2)
         }
     }
 }
@@ -59,6 +53,7 @@ export default {
         margin: 10px;
         width: calc(20% - 20px);
         min-height: 100%;
+        max-height: 480px;
         position: relative;
         .poster {
             width: 100%;
