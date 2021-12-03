@@ -9,6 +9,7 @@
 import Header from './components/Header.vue'
 import MainCont from './components/MainCont.vue'
 
+
 export default {
   name: 'App',
   components: {
@@ -34,6 +35,7 @@ export default {
 </script>
 
 <style lang="scss">
+@import '~@fortawesome/fontawesome-free/css/all.min.css';
   * {
     box-sizing: border-box;
     margin: 0;
